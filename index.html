@@ -8,26 +8,36 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
     
-    <link rel="stylesheet" href="./src/map/ruler.css">  
     <link rel="stylesheet" href="./src/map/create.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
-    
+
     <script src="./src/map/create.js" defer></script>
-    <script src="./script.js" defer></script>
+    <script src="./src/main.js" defer></script>
+        
+    <script src="./src/map/components/line.js"></script>
+    <script src="./src/map/components/marker.js"></script>
+    <script src="./src/map/components/zoom.js"></script>
+    
+    <script src="./src/scripts/blockConstructor.js"></script>
+    <script src="./src/scripts/calculator.js"></script>
 </head>
 <body>
-    <div id="map">
-    </div>
+    <section class="map">
+        <div class="distanceBlocks">
+        </div>
+        <div id="map">
+        </div>
+    <section>
 
-    <input type="text" id="mainAdress">
+    <input type="text" id="mainAddress">
         <button id="mainButton" onclick="mainSearch()">Buscar</button>
 
-    <input type="text" id="secAdress" disabled="true">
-        <button id="secButton" onclick="secSearch()" disabled="true">Buscar</button>
+    <input type="text" id="secAddress">
+        <button id="secButton" onclick="secSearch()">Buscar</button>
 
     <select name="addressList" id="addressList"></select>
 </body>
