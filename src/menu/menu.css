@@ -42,16 +42,16 @@ menu input::placeholder{
 }
 
 menu input:not(:placeholder-shown) {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 menu input:focus, button:hover{
-    background-color: rgba(0, 0, 0, 0.2);
+    filter: brightness(80%);
 }
 
 menu button:active{
     box-shadow: none;
-    filter: brightness(70%);
+    filter: brightness(60%);
 }
 
 menu button{

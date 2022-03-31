@@ -1,0 +1,71 @@
+.loading{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading p{
+    font: 200 40px 'Montserrat';
+    margin-right: 40px;
+}
+
+.dot-bricks {
+    position: relative;
+    transform: scale(1);
+    top: 7px;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    box-shadow: 9991px -16px 0 0 white, 9991px 0 0 0 white, 10007px 0 0 0 white;
+    animation: dotBricks 2s infinite ease;
+  }
+  
+  @keyframes dotBricks {
+    0% {
+      box-shadow: 9991px -16px 0 0 white, 9991px 0 0 0 white, 10007px 0 0 0 white;
+    }
+    8.333% {
+      box-shadow: 10007px -16px 0 0 white, 9991px 0 0 0 white, 10007px 0 0 0 white;
+    }
+    16.667% {
+      box-shadow: 10007px -16px 0 0 white, 9991px -16px 0 0 white, 10007px 0 0 0 white;
+    }
+    25% {
+      box-shadow: 10007px -16px 0 0 white, 9991px -16px 0 0 white, 9991px 0 0 0 white;
+    }
+    33.333% {
+      box-shadow: 10007px 0 0 0 white, 9991px -16px 0 0 white, 9991px 0 0 0 white;
+    }
+    41.667% {
+      box-shadow: 10007px 0 0 0 white, 10007px -16px 0 0 white, 9991px 0 0 0 white;
+    }
+    50% {
+      box-shadow: 10007px 0 0 0 white, 10007px -16px 0 0 white, 9991px -16px 0 0 white;
+    }
+    58.333% {
+      box-shadow: 9991px 0 0 0 white, 10007px -16px 0 0 white, 9991px -16px 0 0 white;
+    }
+    66.666% {
+      box-shadow: 9991px 0 0 0 white, 10007px 0 0 0 white, 9991px -16px 0 0 white;
+    }
+    75% {
+      box-shadow: 9991px 0 0 0 white, 10007px 0 0 0 white, 10007px -16px 0 0 white;
+    }
+    83.333% {
+      box-shadow: 9991px -16px 0 0 white, 10007px 0 0 0 white, 10007px -16px 0 0 white;
+    }
+    91.667% {
+      box-shadow: 9991px -16px 0 0 white, 9991px 0 0 0 white, 10007px -16px 0 0 white;
+    }
+    100% {
+      box-shadow: 9991px -16px 0 0 white, 9991px 0 0 0 white, 10007px 0 0 0 white;
+    }
+  }
+  

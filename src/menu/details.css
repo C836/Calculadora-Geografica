@@ -1,0 +1,44 @@
+.details{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.details img{
+    object-fit:contain;
+    width: 150px;
+    margin-left: 20px;
+}
+
+.details ul{
+    list-style-type:none;
+    font: normal 16px 'Montserrat';
+    color: white;
+    overflow-x: overlay;
+    white-space: nowrap;
+}
+
+.details li{
+    margin: 3px 0 3px 20px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    margin-left: 15px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    border: solid 3px transparent;
+    margin-left: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 10px 10px rgba(255, 255, 255, 0.1);
+    border: solid 3px transparent;
+    margin-left: 15px;
+}

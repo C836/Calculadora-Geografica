@@ -20,3 +20,22 @@ id: 'mapbox/satellite-streets-v11',
 tileSize: 512,
 zoomOffset: -1
 }).addTo(map);
+
+$("#loading").hide()
+
+document.querySelectorAll('.noZoom').forEach(item => {
+  item.addEventListener('wheel', event => {
+    if (event.ctrlKey) {
+      event.preventDefault()
+    }
+  }, true)
+})
+
+map.on('click', function(e) {
+    $("#loading").show()
+    $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${e.latlng.lat}&lon=${e.latlng.lng}`, (data)=>{
+    mainMarker===''? mainSearch(data) : secSearch(data);
+    $("#loading").hide()
+    console.log(data);
+});
+});
