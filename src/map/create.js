@@ -33,7 +33,9 @@ document.querySelectorAll('.noZoom').forEach(item => {
 
 map.on('click', function(e) {
     $("#loading").show()
-    $.get(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${e.latlng.lat}&lon=${e.latlng.lng}`, (data)=>{
+    //https://nominatim.openstreetmap.org/ui/search.html?q=
+    console.log(e.latlng.lat,e.latlng.lng)
+    $.get(`https://nominatim.openstreetmap.org/reverse.php?lat=${e.latlng.lat}&lon=${e.latlng.lng}&format=jsonv2`, (data)=>{
     mainMarker===''? mainSearch(data) : secSearch(data);
     $("#loading").hide()
     console.log(data);

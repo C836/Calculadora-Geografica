@@ -10,8 +10,8 @@ function mainSearch(addressObj){
     mainAddress = $("#mainAddress").val();
 
     getGeo(mainAddress,result=>{
-      mainLatLon = [result.data[0].latitude, result.data[0].longitude];
-      let mainName = result.data[0].label
+      mainLatLon = [result.lat, result.lon];
+      let mainName = result.display_name
 
       if(mainMarker !== '') map.removeLayer(mainMarker)
 
@@ -20,7 +20,13 @@ function mainSearch(addressObj){
       console.log(mainLatLon)
     })
   } else{
+    console.log("mainelse")
+
     details(addressObj.address, 'main')
+
+    console.log(addressObj)
+
+    console.log(addressObj.lat)
 
     mainLatLon = [addressObj.lat, addressObj.lon];
     mainName = addressObj.display_name
@@ -37,8 +43,8 @@ function secSearch(addressObj){
     secAddress = $("#secAddress").val();
 
     getGeo(secAddress,result=>{
-      secLatLon = [result.data[0].latitude, result.data[0].longitude];
-      let secName = result.data[0].label
+      secLatLon = [result.lat, result.lon];
+      let secName = result.display_name
 
       marker(secLatLon,secName,1);
       line(mainLatLon, secLatLon);
@@ -64,11 +70,12 @@ function secSearch(addressObj){
 }
 
 function getGeo(address,callback){
-  fetch(`http://api.positionstack.com/v1/forward?access_key=debd91e6cd3bdf06bddc138dfb493b2d&query=${address}`)
+  fetch(`https://nominatim.openstreetmap.org/search.php?q=${address}&format=jsonv2`)
 
   .then(res => res.json())
   .then(json => {
-      callback(json)
+      console.log(json[0])
+      callback(json[0])
     }
   )
 }
