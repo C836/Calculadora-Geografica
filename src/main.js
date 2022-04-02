@@ -38,43 +38,39 @@ function mainSearch(addressObj){
 
 function secSearch(addressObj){
   if(addressObj===undefined){
-    console.log("secif")
-
     secAddress = $("#secAddress").val();
 
     getGeo(secAddress,result=>{
       secLatLon = [result.lat, result.lon];
       let secName = result.display_name
 
-      marker(secLatLon,secName,1);
-      line(mainLatLon, secLatLon);
-
       calculator(mainLatLon[0], mainLatLon[1], secLatLon[0], secLatLon[1], callback =>{
-        new dist(secName, callback).criar()
+        console.log(callback)
+
+        marker(secLatLon,secName,1);
+        line(mainLatLon, secLatLon);
       });
     })
   }
   else{
-    console.log("secelse")
-
     secLatLon = [addressObj.lat, addressObj.lon];
     let secName = addressObj.display_name
 
-    marker(secLatLon,secName,1);
-    line(mainLatLon, secLatLon);
-
     calculator(mainLatLon[0], mainLatLon[1], secLatLon[0], secLatLon[1], callback =>{
-      new dist(secName, callback).criar()
+      marker(secLatLon, secName,1, callback);
+      line(mainLatLon, secLatLon);
     });
   }
 }
 
 function getGeo(address,callback){
-  fetch(`https://nominatim.openstreetmap.org/search.php?q=${address}&format=jsonv2`)
+  $("#loading").show()
+
+  fetch(`https://nominatim.openstreetmap.org/search.php?q=${address}&format=jsonv2&accept-language=en`)
 
   .then(res => res.json())
   .then(json => {
-      console.log(json[0])
+      $("#loading").hide()
       callback(json[0])
     }
   )

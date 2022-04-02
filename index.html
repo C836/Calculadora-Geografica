@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="./src/main.css">
     <link rel="stylesheet" href="./src/map/create.css">
     <link rel="stylesheet" href="./src/menu/menu.css">
+    <link rel="stylesheet" href="./src/menu/styleMenu.css">
     <link rel="stylesheet" href="./src/menu/details.css">
+    <link rel="stylesheet" href="./src/map/components/popup.css">
     <link rel="stylesheet" href="./src/map/components/loading.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
@@ -25,9 +27,11 @@
     <script src="./src/map/components/line.js"></script>
     <script src="./src/map/components/marker.js"></script>
     <script src="./src/map/components/zoom.js"></script>
+    <script src="./src/map/change.js"></script>
     <script src="./src/menu/details.js"></script>
-    
-    <script src="./src/scripts/blockConstructor.js"></script>
+    <script src="./src/menu/arrow.js" defer></script>
+    <script src="./src/map/reset.js"></script>
+
     <script src="./src/scripts/calculator.js"></script>
 </head>
 <body>
@@ -48,6 +52,8 @@
     </section>
 
     <menu id="menu" class="noZoom">
+        <img class="arrow" src="./src/assets/arrow.svg" onclick="hide()"></img>
+        
         <span>
             <input type="text" id="mainAddress" placeholder="Endereço principal">
             <button id="mainButton" onclick="mainSearch()">
@@ -61,31 +67,32 @@
                 <img src="./src/assets/search.svg" width="50%"></img>
             </button>
         </span>
-        <img id="arrow" src="./src/assets/arrow.svg"></img>
 
-        <div style="width:400px; height:150px; background-color:red">
-
-        </div>
 
         <div class="details">
             <img src="" id="flag">
-                <ul>
-                    <li id="country">
-                        
-                    </li>
-                    <li id="region">
-                        
-                    </li>
-                    <li id="county">
-                        
-                    </li>
-                    <li id="street">
-                        
-                    </li>
-                    <li id="number">
-                        
-                    </li>
-                </ul>
+            <ul>
+                <li id="country">
+                </li>
+                <li id="state">
+                    
+                </li>
+                <li id="city">
+                    
+                </li>
+                <li id="county">
+                    
+                </li>
+                <li id="town">
+                    
+                </li>
+                <li id="suburb">
+                    
+                </li>
+                <li id="road">
+                    
+                </li>
+            </ul>
         </div>
     </menu>
 </body>
