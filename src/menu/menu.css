@@ -3,10 +3,10 @@ menu{
     top: 50%;
     transform: translateY(-50%) translateX(0);
     margin: 0 80px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     height: 435px;
-    box-shadow: 0 0 80px black, 0 0 80px black;
+    box-shadow: 0 0 80px black, 0 0 80px rgba(0, 0, 0, 0.2);
     border: solid white 1px;
     border-radius: 40px;
     display: flex;
@@ -39,14 +39,18 @@ menu input, button{
 }
 
 menu input::placeholder{
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.80);
+}
+
+menu input:focus {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 menu input:not(:placeholder-shown) {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-menu input:focus, button:hover{
+menu button:hover{
     filter: brightness(80%);
 }
 

@@ -1,4 +1,4 @@
-var map = L.map('map',{ zoomControl: false }).setView([51.505, -0.09], 3);
+var map = L.map('map',{ zoomControl: false }).setView([-8.88, -63.6355929], 3);
 new L.Control.Zoom({ position: 'topright' }).addTo(map);
 
 var southWest = L.latLng(-89.98155760646617, -180), northEast = L.latLng(89.99346179538875, 180);
@@ -19,16 +19,6 @@ map.on('drag', function() {
 // tileSize: 512,
 // zoomOffset: -1
 // }).addTo(map);
-
-let options={
-  minZoom: Math.ceil(Math.log2(Math.max(800, 1500) / 300)),
-}
-
-let Default = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', options);
-
-
-
-map.addLayer(Default)
 
 $("#loading").hide()
 

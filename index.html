@@ -10,11 +10,12 @@
     
     <link rel="stylesheet" href="./src/main.css">
     <link rel="stylesheet" href="./src/map/create.css">
+    <link rel="stylesheet" href="./src/map/components/popup.css">
+    <link rel="stylesheet" href="./src/map/components/loading.css">
+
     <link rel="stylesheet" href="./src/menu/menu.css">
     <link rel="stylesheet" href="./src/menu/styleMenu.css">
     <link rel="stylesheet" href="./src/menu/details.css">
-    <link rel="stylesheet" href="./src/map/components/popup.css">
-    <link rel="stylesheet" href="./src/map/components/loading.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
 
@@ -22,15 +23,16 @@
     <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
 
     <script src="./src/map/create.js" defer></script>
+    <script src="./src/map/reset.js"></script>
     <script src="./src/main.js" defer></script>
         
     <script src="./src/map/components/line.js"></script>
     <script src="./src/map/components/marker.js"></script>
     <script src="./src/map/components/zoom.js"></script>
-    <script src="./src/map/change.js"></script>
+    <script src="./src/map/components/tiles/tiles.js" defer></script>
+
     <script src="./src/menu/details.js"></script>
     <script src="./src/menu/arrow.js" defer></script>
-    <script src="./src/map/reset.js"></script>
 
     <script src="./src/scripts/calculator.js"></script>
 </head>
@@ -68,29 +70,37 @@
             </button>
         </span>
 
+        <div id="styleMenu" class="styleMenu">
+            Mapa: <div class="mapSelector"></div>
+            <a onclick="changeMap('default')">Default///</a> 
+            <a onclick="changeMap('nativeLabels')">nativeLabels///</a> 
+            <a onclick="changeMap('dark')">dark///</a> 
+            <a onclick="changeMap('sat')">sat///</a> 
+            <a onclick="changeMap('roadsDark')">roadsDark</a> 
+        </div>
 
         <div class="details">
             <img src="" id="flag">
             <ul>
                 <li id="country">
                 </li>
-                <li id="state">
-                    
+
+                <li id="state">  
                 </li>
+
                 <li id="city">
-                    
                 </li>
+
                 <li id="county">
-                    
                 </li>
-                <li id="town">
-                    
+
+                <li id="town"> 
                 </li>
+
                 <li id="suburb">
-                    
                 </li>
-                <li id="road">
-                    
+
+                <li id="road">   
                 </li>
             </ul>
         </div>
