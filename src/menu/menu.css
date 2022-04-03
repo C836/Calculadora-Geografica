@@ -7,7 +7,7 @@ menu{
     backdrop-filter: blur(10px);
     height: 435px;
     box-shadow: 0 0 80px black, 0 0 80px rgba(0, 0, 0, 0.2);
-    border: solid white 1px;
+    border: solid white 2px;
     border-radius: 40px;
     display: flex;
     flex-direction: column;
