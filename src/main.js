@@ -15,7 +15,7 @@ function mainSearch(addressObj){
 
       if(mainMarker !== '') map.removeLayer(mainMarker)
 
-      marker(mainLatLon,mainName,0);
+      marker(mainLatLon,mainName,0,'',addressObj);
       zoom(mainLatLon)
       console.log(mainLatLon)
     })
@@ -31,7 +31,7 @@ function mainSearch(addressObj){
     mainLatLon = [addressObj.lat, addressObj.lon];
     mainName = addressObj.display_name
 
-    marker(mainLatLon,mainName,0);
+    marker(mainLatLon,mainName,0,'',addressObj);
     zoom(mainLatLon)
   }
 }
@@ -47,7 +47,7 @@ function secSearch(addressObj){
       calculator(mainLatLon[0], mainLatLon[1], secLatLon[0], secLatLon[1], callback =>{
         console.log(callback)
 
-        marker(secLatLon,secName,1);
+        marker(secLatLon,secName,1,'',addressObj);
         line(mainLatLon, secLatLon);
       });
     })
@@ -57,7 +57,7 @@ function secSearch(addressObj){
     let secName = addressObj.display_name
 
     calculator(mainLatLon[0], mainLatLon[1], secLatLon[0], secLatLon[1], callback =>{
-      marker(secLatLon, secName,1, callback);
+      marker(secLatLon, secName,1, callback,addressObj);
       line(mainLatLon, secLatLon);
     });
   }

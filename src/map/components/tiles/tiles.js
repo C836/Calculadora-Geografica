@@ -37,32 +37,39 @@ let nativeLabels = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.p
 let actualMap=Default
 map.addLayer(actualMap)
 
-function changeMap(type){
+function changeValue(sign){
+    let value = Number($(".mapSelector").attr("value"))
+
+    if(sign==='+') {value+=1; $(".mapSelector").attr("value",`${value}`)}
+    else {value-=1; $(".mapSelector").attr("value",`${value}`)}
+
+    changeMap(value)
+    console.log(value)
+}
+
+function changeMap(value){
     map.removeLayer(actualMap)
     
-    switch(type){
-        case 'default':
+    switch(value){
+        case 0:
             actualMap=Default;
-            map.addLayer(actualMap);
             break;
 
-        case 'nativeLabels':
+        case 1:
             actualMap=nativeLabels;
-            map.addLayer(actualMap);
             break;
 
-        case 'dark':
+        case 2:
             actualMap=dark;
-            map.addLayer(actualMap);
             break;
 
-        case 'sat':
+        case 3:
             actualMap=sat1;
-            map.addLayer(actualMap);
             break;
-        case 'roadsDark':
+            
+        case 4:
             actualMap=roadsDark;
-            map.addLayer(actualMap);
             break;
     }
+    map.addLayer(actualMap);
 }

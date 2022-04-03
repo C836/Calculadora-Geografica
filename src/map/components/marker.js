@@ -14,35 +14,35 @@ let secIcon = new L.Icon({
   iconUrl: 'https://i.ibb.co/S0FgVS7/marker.png',
   iconSize: [30, 30],
   iconAnchor: [15, 15],
-  popupAnchor: [1, -34],
 });
 
-function marker(latLon, address, type, distance){
-  console.log(distance)
-  
+function marker(latLon, address, type, distance, resultObj){
+  let a=Object.entries(resultObj.address)
+  let arr=[]
+  for(x in a){
+    arr.push(a[x][1])
+  }
+
   if(type===0) {
     mainMarker = L.marker(latLon, {icon: mainIcon}).addTo(map);
 
-    var popup = L.popup()
-      .setContent("I am a standalone popup.");
-      mainMarker.bindPopup(popup).openPopup();
+    let popup = L.popup()
+      .setContent(arr.join(", "));
+      mainMarker.bindPopup(popup)
   } 
   else{
     secMarker = L.marker(latLon, {icon: secIcon}).addTo(map);
 
-    var popup = L.popup()
-      .setContent("I am a standalone popup.");
-      secMarker.bindPopup(popup).openPopup();
-
+    let popup = L.popup()
+      .setContent(arr.join(", "));
+      secMarker.bindPopup(popup)
 
     getCenter(mainLatLon[0], mainLatLon[1], latLon[0], latLon[1], callback=>{
-      var middleMarker = L.marker(callback, {icon: middleIcon}).addTo(map);
+      let middleMarker = L.marker(callback, {icon: middleIcon}).addTo(map);
       
-      var popup = L.popup()
-      .setContent(distance);
-
-      middleMarker.bindPopup(popup).openPopup();
-      console.log(callback+"arewsetretyrty")
+      let popup = L.popup()
+        .setContent(distance);
+        middleMarker.bindPopup(popup,{'className' : 'distancePopup'}).openPopup();
     })
   }
 }

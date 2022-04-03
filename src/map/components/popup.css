@@ -3,13 +3,18 @@
 }
 
 .leaflet-popup-content-wrapper .leaflet-popup-content {
+    text-align: center;
     visibility: visible;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 0 0 10px black, 0 0 10px black;
 }
 
 .leaflet-popup-close-button {
     color: white;
     text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 0 0 10px black, 0 0 10px black;
+}
+
+.distancePopup .leaflet-popup-content-wrapper .leaflet-popup-content {
+    font-size: 20px;
 }

@@ -71,12 +71,9 @@
         </span>
 
         <div id="styleMenu" class="styleMenu">
-            Mapa: <div class="mapSelector"></div>
-            <a onclick="changeMap('default')">Default///</a> 
-            <a onclick="changeMap('nativeLabels')">nativeLabels///</a> 
-            <a onclick="changeMap('dark')">dark///</a> 
-            <a onclick="changeMap('sat')">sat///</a> 
-            <a onclick="changeMap('roadsDark')">roadsDark</a> 
+            <img src="./src/assets/caretLeft.svg" onclick="changeValue('-')" class="caret">
+                <div class="mapSelector" value="0"></div>
+            <img src="./src/assets/caretRight.svg" onclick="changeValue('+')" class="caret">
         </div>
 
         <div class="details">
