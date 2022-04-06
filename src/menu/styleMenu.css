@@ -2,15 +2,85 @@
     display: flex;
     align-items: center;
     width: 385px;
-    height: 114px;
     background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid white;
+    height: 120px;
     border-radius: 20px;
     padding: 8px;
     margin-bottom: 22px;
 }
 
-.styleMenu .mapSelector{
+.weatherWrapper{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    width: 200px;
+    height: 100px;
+    margin-left: 10px;
+    letter-spacing: 1.2px;
+}
+
+.weatherWrapper ul{
+    list-style: none;
+}
+
+.weatherWrapper ul li img{
+    margin-right: 5px;
+}
+
+.weatherWrapper ul li .weatherNumbers{
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 30px;
+}
+
+.fahrenheit{
+    font-size: 15px;
+    margin-top: -2px ;
+}
+
+.weatherWrapper ul .date{
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.weatherWrapper ul .time{
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.weatherWrapper ul .time #timezone{
+    font-size: 12px;
+}
+
+.styleMenu .iconsWrapper{
+    position: absolute;
+    top: 185px;right: 170px;
+    display: flex;
+    flex-direction: column;
+}
+
+.styleMenu .iconsWrapper button{
+    width: 40px;
+    height: 40px;
+}
+
+.shareIcon{
+    margin-top: 16px;
+}
+
+.shareIcon img{
+    margin: 3px 3px 0 0;
+}
+
+.mapSelectorWrapper{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 40px;
+}
+
+.mapSelectorWrapper .mapSelector{
     display: inline-block;
     width: 75px;
     height: 75px;

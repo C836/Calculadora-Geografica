@@ -26,6 +26,10 @@
     margin: 3px 0 3px 20px;
 }
 
+.details li:empty {
+    background-color: tomato;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     margin-left: 15px;

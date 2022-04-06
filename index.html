@@ -58,47 +58,80 @@
         
         <span>
             <input type="text" id="mainAddress" placeholder="Endereço principal">
-            <button id="mainButton" onclick="mainSearch()">
+            <button title="Pesquisar endereço principal" id="mainButton" onclick="mainSearch()">
                 <img src="./src/assets/search.svg" width="50%"></img>
             </button>
         </span>
 
         <span>
             <input type="text" id="secAddress" placeholder="Endereços secundários">
-            <button id="secButton" onclick="secSearch()">
+            <button title="Pesquisar endereço secundário" id="secButton" onclick="secSearch()">
                 <img src="./src/assets/search.svg" width="50%"></img>
             </button>
         </span>
 
         <div id="styleMenu" class="styleMenu">
-            <img src="./src/assets/caretLeft.svg" onclick="changeValue('-')" class="caret">
-                <div class="mapSelector" value="0"></div>
-            <img src="./src/assets/caretRight.svg" onclick="changeValue('+')" class="caret">
-            <img src="./src/e85aa80b-2b1c-4573-9e34-3c6300cb50f6.webp" height="120px" width="300px">
+            <div>
+                <div class="weatherWrapper">
+                    <ul>
+                        <li>
+                            <img src="https://cdn-icons-png.flaticon.com/512/169/169367.png" width="50px">
+                            <div class="weatherNumbers">
+                                <p id="celcius"></p>
+                                <p class="fahrenheit"></p>
+                            </div>
+                        </li>
+                        <li id="date" class="date"></li>
+                        <li class="time">
+                            <a id="hour"></a>
+                            <a id="timezone"></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="iconsWrapper">
+                        <button title="Limpar todos os campos">
+                            <img src="./src/assets/trashIcon.svg" width="15px">
+                        </button>
+
+                        <button title="Compartilhar endereço selecionado" class="shareIcon">
+                            <img src="./src/assets/shareIcon.svg" width="20px">
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    
+                </div>
+            </div>
+            
+            <div class="mapSelectorWrapper">
+                <img src="./src/assets/caretLeft.svg" onclick="changeValue('-')" class="caret">
+                    <div class="mapSelector" value="0"></div>
+                <img src="./src/assets/caretRight.svg" onclick="changeValue('+')" class="caret">
+            </div>
         </div>
 
         <div class="details">
             <img src="" id="flag">
             <ul>
-                <li id="country">
+                <li id="country" class="detail">.
                 </li>
 
-                <li id="state">  
+                <li id="state" class="detail">.
                 </li>
 
-                <li id="city">
+                <li id="city" class="detail">.
                 </li>
 
-                <li id="county">
+                <li id="county" class="detail">.
                 </li>
 
-                <li id="town"> 
+                <li id="suburb" class="detail">.
                 </li>
 
-                <li id="suburb">
-                </li>
-
-                <li id="road">   
+                <li id="road" class="detail">.
                 </li>
             </ul>
         </div>

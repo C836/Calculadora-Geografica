@@ -1,25 +1,86 @@
 // https://countryflagsapi.com/png/brazil
 
-function details(address,method){
-    console.log(address)
+function details(address){
+    $(".detail").each((x)=>{
+        $(".detail")[x].innerText=''
+    });
+
     fetch(`https://countryflagsapi.com/png/${address.country_code}`)
     .then(response => response.blob())
     .then(imageBlob => {
-        const imageObjectURL = URL.createObjectURL(imageBlob);
-        console.log(imageObjectURL);
+        let imageObjectURL = URL.createObjectURL(imageBlob);
         $("#flag").attr("src",imageObjectURL)
     });
 
-    $("#country").text(address.country+" "+address.country_code.toUpperCase())
-    $("#state").text(address.state)
-    $("#city").text(address.city)
-        if(address.city==='') $("#city").text(address.municipality)
+    let names=[
+        address.country+" "+address.country_code.toUpperCase(),
+        address.state,
+        address.city,
+        address.municipality,
+        address.town,
+        address.suburb,
+        address.county,
+        address.road,
+        address.village
+    ]
 
-    $("#town").text(address.town)
+    var filtered = names.filter(function(x) {
+        return x !== undefined;
+    });
 
-    $("#suburb").text(address.suburb)
-        if(address.suburb!==address.county) $("#county").text(address.county)
+    let filteredAddress=[]
+    $(".detail").each((x)=>{
+        filtered[x] !== undefined ? ($(".detail")[x].innerText=filtered[x], filteredAddress.push(filtered[x])) : null
+    });
 
-    $("#road").text(address.road)
-        if(address.road===undefined) $("#road").text(address.village)
+    console.log(filteredAddress.join(' '))
+
+    wheather(filteredAddress.join(' '))
+}
+
+function wheather(address){
+    console.log(city, country)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=c0e064493a4a4fd5b2c235414220504&q=${address}&aqi=no`)
+
+    .then(res=>res.json())
+    .then(res => {
+        console.log(res.location.localtime)
+        console.log(res.current.temp_c, res.current.temp_f)
+
+        $("#celcius").text(res.current.temp_c+'°C')
+        $(".fahrenheit").text(res.current.temp_f+'°f')
+        
+        date(res.location.localtime, res.location.tz_id)
+    })
+
+    $("#loading").hide()
+}
+
+function date(date, id){
+   
+    fetch(`https://timezoneapi.io/api/timezone/?${id}&token=abTLiSGlNzavcynRNmLO`)
+
+    .then(res=>res.json())
+    .then(res=>{
+        let hour=date.split(' ')[1].split(':')
+        let period = res.data.datetime.hour_am_pm.toUpperCase()
+
+        let t12hr = `${((Number(hour[0]) + 11) % 12 + 1)}:${hour[1]} ${period}`
+
+        let gmt=res.data.datetime.offset_gmt
+        if(gmt.charAt(1)==='0') gmt=gmt.replace(gmt.charAt(1), '');
+        if(gmt.split(':')[1]==='00') gmt=gmt.split(':')[0]
+
+        let semana=['Sexta', 'Sábado', 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta']
+        let meses=[ 'dezembro', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro']
+
+        let dia=res.data.datetime.day, mes=res.data.datetime.month, ano=res.data.datetime.year
+        
+        let diaSem=(new Date(ano,mes,dia).getDay())
+            diaSem=semana[diaSem]
+
+        $("#hour").text(t12hr)
+        $("#date").text(`${diaSem}, ${dia} de ${meses[mes]}`)
+        $("#timezone").text(`(GMT ${gmt})`)
+    })
 }
