@@ -1,5 +1,7 @@
 // https://countryflagsapi.com/png/brazil
 
+const { links } = require("express/lib/response");
+
 function details(address){
     $(".detail").each((x)=>{
         $(".detail")[x].innerText=''
@@ -33,22 +35,19 @@ function details(address){
         filtered[x] !== undefined ? ($(".detail")[x].innerText=filtered[x], filteredAddress.push(filtered[x])) : null
     });
 
-    console.log(filteredAddress.join(' '))
-
     wheather(filteredAddress.join(' '))
 }
 
 function wheather(address){
-    console.log(city, country)
     fetch(`https://api.weatherapi.com/v1/current.json?key=c0e064493a4a4fd5b2c235414220504&q=${address}&aqi=no`)
 
     .then(res=>res.json())
     .then(res => {
-        console.log(res.location.localtime)
-        console.log(res.current.temp_c, res.current.temp_f)
-
         $("#celcius").text(res.current.temp_c+'°C')
         $(".fahrenheit").text(res.current.temp_f+'°f')
+            let link=res.current.condition.icon.split('/'); 
+                link=`${link[5]}/${link[6]}`
+        $("#weatherIcon").attr("src",`./src/assets/weatherIcons/${link}`)
         
         date(res.location.localtime, res.location.tz_id)
     })
@@ -57,7 +56,6 @@ function wheather(address){
 }
 
 function date(date, id){
-   
     fetch(`https://timezoneapi.io/api/timezone/?${id}&token=abTLiSGlNzavcynRNmLO`)
 
     .then(res=>res.json())
@@ -72,7 +70,7 @@ function date(date, id){
         if(gmt.split(':')[1]==='00') gmt=gmt.split(':')[0]
 
         let semana=['Sexta', 'Sábado', 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta']
-        let meses=[ 'dezembro', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro']
+        let meses=['dezembro', 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro']
 
         let dia=res.data.datetime.day, mes=res.data.datetime.month, ano=res.data.datetime.year
         

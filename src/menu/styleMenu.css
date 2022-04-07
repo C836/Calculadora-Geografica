@@ -25,6 +25,7 @@
 
 .weatherWrapper ul li img{
     margin-right: 5px;
+    transform: scale(1.3);
 }
 
 .weatherWrapper ul li .weatherNumbers{
