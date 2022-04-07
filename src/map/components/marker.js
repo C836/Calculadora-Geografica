@@ -17,7 +17,12 @@ let secIcon = new L.Icon({
 });
 
 function marker(latLon, address, type, distance, resultObj){
-  let a=Object.entries(resultObj.address)
+  let a={}
+  try{a=Object.entries(resultObj.address)}
+  catch(err){
+    error()
+  }
+
   let arr=[]
   for(x in a){
     arr.push(a[x][1])

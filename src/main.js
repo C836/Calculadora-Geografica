@@ -68,3 +68,14 @@ function getAddress(lat, lng){
     }
   )
 }
+
+function error(){
+  $("#loadingMsg").text('Erro ao buscar local ')
+  $('.dot-bricks').css('animationPlayState','paused')
+
+  setTimeout(()=>{
+    $('#loading').hide()
+    $("#loadingMsg").text('Carregando ')
+    $('.dot-bricks').css('animationPlayState','running')
+  },2500)
+}
