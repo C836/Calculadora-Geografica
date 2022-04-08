@@ -11,6 +11,7 @@ function mainSearch(addressObj){
 
     getGeo(mainAddress,result=>{
       getAddress(result.lat, result.lon)
+      enableSec()
     })
   } else{
     mainLatLon = [addressObj.lat, addressObj.lon];
@@ -20,9 +21,8 @@ function mainSearch(addressObj){
     zoom(mainLatLon, '', 'main')
 
     details(addressObj.address)
+    enableSec()
   }
-
-  enableSec()
 }
 
 function secSearch(addressObj){
@@ -56,7 +56,7 @@ function getGeo(address,callback){
 
     .then(res => res.json())
     .then(json => {
-      callback(json[0])
+      jQuery.isEmptyObject(json) ? error() : callback(json[0])
     }
   )
 }

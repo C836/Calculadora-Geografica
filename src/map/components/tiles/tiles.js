@@ -44,7 +44,6 @@ let sat1 = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
     zoomOffset: -1  
 });
 
-
 let nativeLabels = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     minZoom: Math.ceil(Math.log2(Math.max(800, 1500) / 300)),
 });
