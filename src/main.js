@@ -4,26 +4,31 @@ let secAddress = ''
 let secLatLon = 0
 
 function mainSearch(addressObj){
-  if(addressObj===undefined){ 
+  if(addressObj===undefined){
+    if($('#mainAddress').val()==='') return
+
     mainAddress = $("#mainAddress").val();
 
     getGeo(mainAddress,result=>{
       getAddress(result.lat, result.lon)
     })
-
   } else{
     mainLatLon = [addressObj.lat, addressObj.lon];
     mainName = addressObj.display_name
 
     marker(mainLatLon,mainName,0,'',addressObj);
-    zoom(mainLatLon)
+    zoom(mainLatLon, '', 'main')
+
+    details(addressObj.address)
   }
 
-  details(addressObj.address)
+  enableSec()
 }
 
 function secSearch(addressObj){
   if(addressObj===undefined){
+    if($('#secAddress').val()==='') return
+    
     secAddress = $("#secAddress").val();
 
     getGeo(secAddress, result=>{
@@ -41,6 +46,7 @@ function secSearch(addressObj){
   }
 
   details(addressObj.address)
+  $('#secAddress').val('')
 }
 
 function getGeo(address,callback){

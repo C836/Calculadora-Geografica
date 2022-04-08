@@ -21,6 +21,11 @@ menu span{
     display: flex;
 }
 
+menu *:disabled{
+    opacity: 0.3;
+    pointer-events: none;
+}
+
 menu input{
     width: 315px;
     height: 45px;

@@ -1,7 +1,3 @@
-// https://countryflagsapi.com/png/brazil
-
-const { links } = require("express/lib/response");
-
 function details(address){
     $(".detail").each((x)=>{
         $(".detail")[x].innerText=''
@@ -51,8 +47,6 @@ function wheather(address){
         
         date(res.location.localtime, res.location.tz_id)
     })
-
-    $("#loading").hide()
 }
 
 function date(date, id){
@@ -80,5 +74,7 @@ function date(date, id){
         $("#hour").text(t12hr)
         $("#date").text(`${diaSem}, ${dia} de ${meses[mes]}`)
         $("#timezone").text(`(GMT ${gmt})`)
+
+        $("#loading").hide()
     })
 }

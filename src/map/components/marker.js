@@ -18,7 +18,9 @@ let secIcon = new L.Icon({
 
 function marker(latLon, address, type, distance, resultObj){
   let a={}
-  try{a=Object.entries(resultObj.address)}
+  try{
+    a=Object.entries(resultObj.address)
+  }
   catch(err){
     error()
   }
@@ -31,6 +33,8 @@ function marker(latLon, address, type, distance, resultObj){
   if(type===0) {
     mainMarker = L.marker(latLon, {icon: mainIcon}).addTo(map);
 
+    console.log('awer')
+
     let popup = L.popup()
       .setContent(arr.join(", "));
       mainMarker.bindPopup(popup)
@@ -38,12 +42,16 @@ function marker(latLon, address, type, distance, resultObj){
   else{
     secMarker = L.marker(latLon, {icon: secIcon}).addTo(map);
 
+    console.log('aerwrt')
+
     let popup = L.popup()
       .setContent(arr.join(", "));
       secMarker.bindPopup(popup)
 
     getCenter(mainLatLon[0], mainLatLon[1], latLon[0], latLon[1], callback=>{
       let middleMarker = L.marker(callback, {icon: middleIcon}).addTo(map);
+
+      zoom(mainLatLon, latLon, distance)
       
       let popup = L.popup()
         .setContent(distance);

@@ -18,12 +18,13 @@
     <link rel="stylesheet" href="./src/menu/details.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" defer></script>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js" integrity="sha384-N2S8y7hRzXUPiepaSiUvBH1ZZ7Tc/ZfchhbPdvOE5v3aBBCIepq9l+dBJPFdo1ZJ" crossorigin="anonymous"></script>
 
     <script src="./src/map/create.js" defer></script>
-    <script src="./src/map/reset.js"></script>
+    <script src="./src/scripts/reset.js" defer></script>
     <script src="./src/main.js" defer></script>
         
     <script src="./src/map/components/line.js"></script>
@@ -55,7 +56,6 @@
 
     <menu id="menu" class="noZoom">
         <img class="arrow" src="./src/assets/arrow.svg" onclick="hide()"></img>
-        
         <span>
             <input type="text" id="mainAddress" placeholder="Endereço principal">
             <button title="Pesquisar endereço principal" id="mainButton" onclick="mainSearch()">
@@ -77,21 +77,21 @@
                         <li>
                             <img src="" id="weatherIcon" width="50px">
                             <div class="weatherNumbers">
-                                <p id="celcius"></p>
-                                <p class="fahrenheit"></p>
+                                <p id="celcius" class="w_h"></p>
+                                <p class="fahrenheit w_h"></p>
                             </div>
                         </li>
-                        <li id="date" class="date"></li>
+                        <li id="date" class="date w_h"></li>
                         <li class="time">
-                            <a id="hour"></a>
-                            <a id="timezone"></a>
+                            <a id="hour" class="w_h"></a>
+                            <a id="timezone" class="w_h"></a>
                         </li>
                     </ul>
                 </div>
 
                 <div>
                     <div class="iconsWrapper">
-                        <button title="Limpar todos os campos">
+                        <button title="Limpar todos os campos" onclick="reset()">
                             <img src="./src/assets/trashIcon.svg" width="15px">
                         </button>
 
@@ -116,22 +116,22 @@
         <div class="details">
             <img src="" id="flag">
             <ul>
-                <li id="country" class="detail">
+                <li id="country" class="detail w_h">
                 </li>
 
-                <li id="state" class="detail">
+                <li id="state" class="detail w_h">
                 </li>
 
-                <li id="city" class="detail">
+                <li id="city" class="detail w_h">
                 </li>
 
-                <li id="county" class="detail">
+                <li id="county" class="detail w_h">
                 </li>
 
-                <li id="suburb" class="detail">
+                <li id="suburb" class="detail w_h">
                 </li>
 
-                <li id="road" class="detail">
+                <li id="road" class="detail w_h">
                 </li>
             </ul>
         </div>
