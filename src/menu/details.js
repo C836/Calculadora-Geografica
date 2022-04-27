@@ -31,10 +31,10 @@ function details(address){
         filtered[x] !== undefined ? ($(".detail")[x].innerText=filtered[x], filteredAddress.push(filtered[x])) : null
     });
 
-    wheather(filteredAddress.join(' '))
+    weather(filteredAddress.join(' '))
 }
 
-function wheather(address){
+function weather(address){
     fetch(`https://api.weatherapi.com/v1/current.json?key=c0e064493a4a4fd5b2c235414220504&q=${address}&aqi=no`)
 
     .then(res=>res.json())
@@ -77,4 +77,8 @@ function date(date, id){
 
         $("#loading").hide()
     })
+}
+
+function share(){
+    navigator.clipboard.writeText($(".leaflet-popup-content").text())
 }

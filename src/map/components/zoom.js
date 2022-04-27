@@ -4,8 +4,6 @@ if(method==='main'){
     animate: true,
     duration: 1.5})  
 } else{
-    console.log(mainlatLon, seclatLon)
-
     let bounds = [[Number(mainlatLon[0]), Number(mainlatLon[1])], [Number(seclatLon[0]), Number(seclatLon[1])]];
     let rectangle = L.polygon(bounds).addTo(map);
 

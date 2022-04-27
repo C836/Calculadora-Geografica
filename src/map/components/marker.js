@@ -33,16 +33,12 @@ function marker(latLon, address, type, distance, resultObj){
   if(type===0) {
     mainMarker = L.marker(latLon, {icon: mainIcon}).addTo(map);
 
-    console.log('awer')
-
     let popup = L.popup()
       .setContent(arr.join(", "));
       mainMarker.bindPopup(popup)
   } 
   else{
     secMarker = L.marker(latLon, {icon: secIcon}).addTo(map);
-
-    console.log('aerwrt')
 
     let popup = L.popup()
       .setContent(arr.join(", "));

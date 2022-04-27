@@ -94,7 +94,6 @@ menu button{
     animation: clock 0.8s linear 0.5 both;
 }
 
-
 @keyframes clock {
     0% {
         transform: rotate(0) translateY(-50%);

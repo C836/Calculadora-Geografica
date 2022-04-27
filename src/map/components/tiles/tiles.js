@@ -62,7 +62,6 @@ function changeValue(sign){
         $(".mapSelector").attr("value",`${value}`)}
 
     changeMap(value)
-    console.log(value)
 }
 
 function changeMap(value){
