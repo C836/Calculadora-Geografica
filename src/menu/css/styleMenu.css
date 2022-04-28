@@ -86,7 +86,7 @@
     width: 75px;
     height: 75px;
     border-radius: 10px;
-    background: url("./../assets/mapIcons/0.png") no-repeat center center;
+    background: url("./../../assets/mapIcons/0.png") no-repeat center center;
     background-size: cover;
     border: 2px solid white;
     margin: 0 2px;
