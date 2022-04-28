@@ -22,7 +22,3 @@ document.querySelectorAll('.noZoom').forEach(item => {
 map.on('click', function(e) {
     getAddress(e.latlng.lat, e.latlng.lng)
 });
-
-fetch('https://api.ipify.org?format=json')
-.then(res => res.json())
-.then(json => weather(json.ip))
